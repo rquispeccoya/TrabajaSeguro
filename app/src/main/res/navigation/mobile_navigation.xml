@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.proyectofinal.trabajoseguro.ui.home.HomeFragment"
+        android:name="com.proyectofinal.trabajoseguro.ListaAnunciosFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_lista_anuncios" />
 
     <fragment
         android:id="@+id/nav_gallery"

@@ -10,6 +10,16 @@ public class Anuncio {
     private int estado;
     private int idUsuario;
 
+    public Anuncio(String titulo, String descripcion) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        //this.categoria = categoria;
+    }
+
+    public Anuncio() {
+
+    }
+
     public double getLatitud() {
         return latitud;
     }
