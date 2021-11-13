@@ -31,20 +31,24 @@ public class CrearAnuncioFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentCrearAnuncioBinding.inflate(inflater, container, false);
         //View view = inflater.inflate(R.layout., container, false);
+
+        binding.setCrearAnuncio(new CrearAnuncioViewModel(getActivity().getApplicationContext()));
         View root = binding.getRoot();
 
-        binding.setCrearAnuncio(new CrearAnuncioViewModel(getContext()));
+
         binding.getCrearAnuncio().setSelectedItemPosition(1);
 
         Toast.makeText(getActivity(),String.valueOf(binding.getCrearAnuncio().getSelectedItemPosition()),Toast.LENGTH_LONG).show();
         b=root.findViewById(R.id.buttonCrearAnuncio);
-        EditText e = root.findViewById(R.id.editTextUbicacion);
+        EditText latitud = root.findViewById(R.id.editTextLatitud);
+        EditText longitud = root.findViewById(R.id.editTextLongitud);
         getChildFragmentManager().setFragmentResultListener("requestKey", getViewLifecycleOwner(), new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String a = result.getString("la");
                 String b = result.getString("lo");
-                e.setText(a+"   "+b);
+                latitud.setText(a);
+                longitud.setText(b);
                 //Toast.makeText(getParentFragment().getContext(), a+" "+b,Toast.LENGTH_LONG).show();
             }
         });

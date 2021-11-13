@@ -4,6 +4,37 @@ public class Anuncio {
 
     private String titulo;
     private String descripcion;
+    private int categoria;
+    private double latitud;
+    private double longitud;
+    private int estado;
+    private int idUsuario;
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+
+
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -21,20 +52,12 @@ public class Anuncio {
         this.descripcion = descripcion;
     }
 
-    public String getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public int getEstado() {
@@ -45,7 +68,16 @@ public class Anuncio {
         this.estado = estado;
     }
 
-    private String categoria;
-    private String ubicacion;
-    private int estado;
+    @Override
+    public String toString() {
+        return "Anuncio{" +
+                "titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", categoria=" + categoria +
+                ", latitud=" + latitud +
+                ", longitud=" + longitud +
+                ", estado=" + estado +
+                ", idUsuario=" + idUsuario +
+                '}';
+    }
 }

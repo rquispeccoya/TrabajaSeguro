@@ -7,11 +7,14 @@ import androidx.databinding.Bindable;
 
 import com.proyectofinal.trabajoseguro.BR;
 import com.proyectofinal.trabajoseguro.model.Anuncio;
+import com.proyectofinal.trabajoseguro.model.Categoria;
+import com.proyectofinal.trabajoseguro.model.DataAnuncio;
+import com.proyectofinal.trabajoseguro.model.DataCategoria;
 
 public class CrearAnuncioViewModel extends BaseObservable {
     private Anuncio anuncio;
     private Context context;
-    private String men="hola";
+    private String men = "hola";
 
     public CrearAnuncioViewModel(Context context) {
         this.anuncio = new Anuncio();
@@ -26,26 +29,58 @@ public class CrearAnuncioViewModel extends BaseObservable {
         anuncio.setDescripcion(descripcion);
     }
 
-    public void setCrearAnuncioCategoria(String categoria) {
+    public void setCrearAnuncioCategoria(int categoria) {
         anuncio.setCategoria(categoria);
     }
 
-    public void setCrearAnuncioUbicacion(String ubicacion) {
-        anuncio.setUbicacion(ubicacion);
+    public void setCrearAnuncioLatitud(String latitud) {
+        anuncio.setLatitud(Double.parseDouble(latitud));
     }
 
-    public void setCrearAnuncioEstado(int estado) {
-        anuncio.setEstado(estado);
+    public void setCrearAnuncioLongitud(String longitud) {
+
+        anuncio.setLongitud(Double.parseDouble(longitud));
     }
 
+    public void setCrearAnuncioIdUsuario(int idUsuario) {
+        anuncio.setIdUsuario(idUsuario);
+    }
 
+    @Bindable
     public String getCrearAnuncioTitulo() {
         return anuncio.getTitulo();
+    }
+    @Bindable
+    public String getCrearAnuncioDescripcion() {
+        return anuncio.getDescripcion();
+    }
+    @Bindable
+    public int getCrearAnuncioCategoria() {
+        return anuncio.getCategoria();
+    }
+    @Bindable
+    public String getCrearAnuncioLatitud() {
+        return String.valueOf(anuncio.getLatitud());
+    }
+    @Bindable
+    public String getCrearAnuncioLongitud() {
+        return String.valueOf(anuncio.getLongitud());
+    }
+    @Bindable
+    public int getCrearAnuncioIdUsuario() {
+        return  anuncio.getIdUsuario();
     }
 
     public void onClickRegistrarAnuncio() {
         setMen(anuncio.getTitulo());
-        System.out.println(anuncio.getTitulo() + "  WAAAAAAAAAAAAAA");
+        DataAnuncio dataAnuncio = new DataAnuncio(context.getApplicationContext());
+        anuncio.setIdUsuario(1);
+        anuncio.setCategoria(getSelectedItemPosition()+1);
+
+        dataAnuncio.guardarAnuncio(anuncio);
+        System.out.println(anuncio.toString());
+        setCrearAnuncioTitulo("");
+        setCrearAnuncioDescripcion("");
     }
 
     @Bindable
@@ -73,13 +108,8 @@ public class CrearAnuncioViewModel extends BaseObservable {
     }
 
     public String[] categorias() {
-        String[] categoria = new String[4];
-        categoria[0] = "mecanico";
-        categoria[1] = "soldador";
-        categoria[2] = "albañil";
-        categoria[3] = "profesor";
-
-        return categoria;
+        DataCategoria dataCategoria = new DataCategoria(context.getApplicationContext());
+        return dataCategoria.listaCategorias();
     }
 
 
