@@ -18,15 +18,15 @@
             android:id="@+id/editTextTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="116dp"
             android:ems="10"
             android:hint="Titulo"
             android:inputType="textPersonName"
+            android:text="@={crearAnuncio.crearAnuncioTitulo}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@={crearAnuncio.crearAnuncioTitulo}"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editTextDescripcion"
@@ -59,13 +59,13 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="com.proyectofinal.trabajoseguro.MapsFragment"
-            android:layout_width="416dp"
-            android:layout_height="389dp"
+            android:layout_width="413dp"
+            android:layout_height="298dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonCrearAnuncio" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonCrearAnuncio"
+            app:layout_constraintVertical_bias="0.301" />
 
         <Spinner
             android:id="@+id/spinner"

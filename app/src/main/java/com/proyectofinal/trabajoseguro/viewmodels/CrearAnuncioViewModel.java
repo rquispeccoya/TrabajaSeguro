@@ -23,10 +23,12 @@ public class CrearAnuncioViewModel extends BaseObservable {
 
     public void setCrearAnuncioTitulo(String titulo) {
         anuncio.setTitulo(titulo);
+        notifyPropertyChanged(BR.crearAnuncioTitulo);
     }
 
     public void setCrearAnuncioDescripcion(String descripcion) {
         anuncio.setDescripcion(descripcion);
+        notifyPropertyChanged(BR.crearAnuncioDescripcion);
     }
 
     public void setCrearAnuncioCategoria(int categoria) {

@@ -47,8 +47,6 @@ public class HomeFragment extends Fragment {
         AnunciosAdapter anunciosAdapter=new AnunciosAdapter(elements);
         recyclerView.setAdapter(anunciosAdapter);
         //recyclerView.setHasFixedSize(true);
-
-
     }
 
     @Override
