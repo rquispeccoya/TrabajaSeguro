@@ -6,60 +6,75 @@
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     app:cardCornerRadius="20dp"
-    app:cardElevation="4dp"
+    app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@color/violeta"
-
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            app:srcCompat="?attr/actionModePasteDrawable" />
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="6dp">
 
-            <TextView
-                android:id="@+id/textViewTitulo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="TextView"
-                android:textSize="20sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewDescripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="TextView"
-                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/img_design"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/cocinero" />
 
-            <TextView
-                android:id="@+id/textViewCategoria"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="TextView"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/img_design"
+                android:orientation="vertical"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/img_design">
+
+                <TextView
+                    android:id="@+id/textViewTitulo"
+                    android:layout_width="233dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:text="TextView"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="TextView"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/black"
+                    android:text="Cocinero"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+
 

@@ -18,7 +18,8 @@
             android:id="@+id/app_bar_interfaz_usuario"
             layout="@layout/app_bar_interfaz_usuario"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"

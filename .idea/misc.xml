@@ -18,6 +18,23 @@
         <entry key="..\:/Users/Royer/AndroidStudioProjects/TrabajoSeguro/app/src/main/res/layout/nav_header_interfaz_usuario.xml" value="0.33589743589743587" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/TrabajoSeguro/app/src/main/res/menu/activity_main_drawer.xml" value="0.1891156462585034" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/TrabajoSeguro/app/src/main/res/menu/interfaz_usuario.xml" value="0.1287037037037037" />
+        <entry key="app/src/main/res/drawable/backadd.xml" value="0.371875" />
+        <entry key="app/src/main/res/drawable/backlogin.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/drawable/button.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/drawable/nothing.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/layout/activity_interfaz_usuario.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/app_bar_interfaz_usuario.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/content_interfaz_usuario.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/disenio_anuncio.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_anuncio_detalle.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_crear_anuncio.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_lista_anuncios.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/nav_header_interfaz_usuario.xml" value="0.19791666666666666" />
       </map>
     </option>
   </component>

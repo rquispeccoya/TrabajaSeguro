@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
 
     <data>
         <variable
@@ -81,22 +82,23 @@
 
         <Button
             android:id="@+id/buttonCrearAnuncio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="304dp"
+            android:layout_height="44dp"
             android:layout_marginTop="24dp"
-            android:text="Button"
+            android:background="@drawable/button"
+            android:onClick="@{()->crearAnuncio.onClickRegistrarAnuncio()}"
+            android:text="GUARDAR"
+            app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner"
-            android:onClick="@{()->crearAnuncio.onClickRegistrarAnuncio()}"/>
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <TextView
             android:id="@+id/mensajee"
             android:layout_width="41dp"
             android:layout_height="22dp"
             android:text="@{crearAnuncio.men}"
-
             app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView"
             app:layout_constraintEnd_toStartOf="@+id/editTextTitulo"
             app:layout_constraintHorizontal_bias="0.38"

@@ -2,7 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black">
+    app:backgroundTint="@null"
+    android:background="@drawable/backadd">
 
     <data>
 
@@ -17,10 +18,13 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="141dp"
-            android:layout_height="23dp"
+            android:layout_width="142dp"
+            android:layout_height="37dp"
             android:layout_marginTop="48dp"
             android:text="ANUNCIO"
+            android:textColor="@color/orange"
+            android:textSize="22dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +52,9 @@
                     android:ems="10"
                     android:paddingBottom="10dp"
                     android:paddingTop="12dp"
-                    android:text="TextView" />
+                    android:layout_margin="5dp"
+                    android:textSize="16dp"
+                    android:text="Titulo" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -56,13 +62,13 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
                     android:paddingTop="12dp"
-                    android:text="TextView" />
+                    android:text="Categoria" />
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="Descripcion" />
             </LinearLayout>
 
             <LinearLayout

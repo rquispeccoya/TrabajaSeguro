@@ -50,11 +50,11 @@ public class ListaAnunciosFragment extends Fragment implements SearchView.OnQuer
         //recyclerView=root.findViewById(R.id.ReciclerViewListaAnuncios);
         recyclerView=binding.ReciclerViewListaAnuncios;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        /*
-        elements.add(new Anuncio("ga","ne"));
-        elements.add(new Anuncio("ba","ne"));
-        elements.add(new Anuncio("sa","ne"));
-        elements.add(new Anuncio("qa","ne"));*/
+
+        elements.add(new Anuncio("Cocinero Con Experiencia","El Perla Arequipa,Arequipa"));
+        elements.add(new Anuncio("Necesitamos cocinero a tiempo Completo","La Parriche Arequipa,Arequipa"));
+        elements.add(new Anuncio("Cocinera Cama adentro","Corial Incorporated Arequipa,Arequipa"));
+        elements.add(new Anuncio("Cajero","Legatitas Arequipa,Arequipa"));
         anunciosAdapter=new AnunciosAdapter(elements);
         recyclerView.setAdapter(anunciosAdapter);
         txtBuscar = binding.txtBuscar;
