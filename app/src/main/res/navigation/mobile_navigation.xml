@@ -28,4 +28,10 @@
         android:name="com.proyectofinal.trabajoseguro.ui.crearAnuncio.CrearAnuncioFragment"
         android:label="Crear anuncio"
         tools:layout="@layout/fragment_crear_anuncio" />
+
+    <fragment
+        android:id="@+id/nav_detalle_anuncio"
+        android:name="com.proyectofinal.trabajoseguro.AnuncioDetalleFragment"
+        android:label="Detalle anuncio"
+        tools:layout="@layout/fragment_anuncio_detalle" />
 </navigation>

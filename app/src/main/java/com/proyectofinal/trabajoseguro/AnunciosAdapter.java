@@ -16,10 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.ViewHolder> {
+public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.ViewHolder> implements View.OnClickListener {
 
     private ArrayList<Anuncio> mData;
     private ArrayList<Anuncio> mDataCopia;
+    private View.OnClickListener listener;
     //private LayoutInflater mInflater;
     private Context context;
 
@@ -31,10 +32,14 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.ViewHo
         mDataCopia.addAll(mData);
     }
 
+    public void setOnclickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.disenio_anuncio,null,false);
+        view.setOnClickListener(this);
         return new AnunciosAdapter.ViewHolder(view);
     }
 
@@ -74,6 +79,13 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.ViewHo
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(listener!=null){
+            listener.onClick(view);
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
