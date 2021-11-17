@@ -43,6 +43,22 @@ public class ConexionSQLite extends  SQLiteOpenHelper{
                 ")"
         );
 
+        db.execSQL("CREATE TABLE Empresa\n" +
+                "(\n" +
+                "  idempresa INTEGER NOT NULL\n" +
+                "        CONSTRAINT PK_Empresa PRIMARY KEY AUTOINCREMENT,\n" +
+                "  nombre TEXT NOT NULL,\n" +
+                "  encargado TEXT NOT NULL,\n" +
+                "  correo TEXT NOT NULL,\n" +
+                "  telefono TEXT NOT NULL,\n" +
+                "  ruc TEXT NOT NULL,\n" +
+                "  usuario TEXT NOT NULL,\n" +
+                "  contrasenia TEXT NOT NULL,\n" +
+                "  descripcion TEXT NOT NULL,\n" +
+                "  direccion TEXT NOT NULL,\n" +
+                "  departamento TEXT NOT NULL\n" +
+                ")"
+        );
 
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Carpintero')");
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Soldador')");
@@ -50,8 +66,7 @@ public class ConexionSQLite extends  SQLiteOpenHelper{
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Granjero')");
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Profesor')");
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Pintor')");
-
-
+        db.execSQL("INSERT INTO Empresa (nombre, encargado, correo, telefono, ruc, usuario, contrasenia, descripcion, direccion, departamento) VALUES('Elite', 'Jordan', 'jlaqui@unsa.edu.pe', '921242901', '123', 'admin', 'admin', 'Papeleria', 'Av 123', 'Arequipa')");
 
     }
 
@@ -59,7 +74,7 @@ public class ConexionSQLite extends  SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS Anuncios");
-        //db.execSQL("DROP TABLE IF EXISTS Categoria");
+        db.execSQL("DROP TABLE IF EXISTS Empresa");
         //db.execSQL("DROP TABLE IF EXISTS fichaInscripcion");
         onCreate(db);
 
