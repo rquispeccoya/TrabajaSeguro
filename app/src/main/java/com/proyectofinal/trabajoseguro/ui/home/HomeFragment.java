@@ -1,5 +1,6 @@
 package com.proyectofinal.trabajoseguro.ui.home;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,46 +8,47 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.proyectofinal.trabajoseguro.AnunciosAdapter;
 import com.proyectofinal.trabajoseguro.R;
 import com.proyectofinal.trabajoseguro.databinding.FragmentHomeBinding;
-import com.proyectofinal.trabajoseguro.model.Anuncio;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.proyectofinal.trabajoseguro.viewmodels.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 
-    ArrayList<Anuncio> elements;
-    private FragmentHomeBinding binding;
+    //ArrayList<Anuncio> elements;
 
+    private FragmentHomeBinding binding;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        //binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View vista =inflater.inflate(R.layout.fragment_home,container,false);
+       /* binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
-        init(vista);
-        return vista;
+        return root;*/
+        Activity a = getActivity();
+        TextView r =a.findViewById(R.id.idEmpresa);
+
+         binding = DataBindingUtil.inflate(
+                inflater, R.layout.fragment_home, container, false);
+         //binding.setHome(new HomeViewModel((String) r.getText(),getContext()));
+        View root = binding.getRoot();
+
+
+        return root;
     }
-    public void init(View root){
-        elements=new ArrayList<>();
-        RecyclerView recyclerView=root.findViewById(R.id.ReciclerViewAnuncios);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        elements.add(new Anuncio("ga","ne"));
-        elements.add(new Anuncio("ba","ne"));
-        elements.add(new Anuncio("sa","ne"));
-        elements.add(new Anuncio("qa","ne"));
-        AnunciosAdapter anunciosAdapter=new AnunciosAdapter(elements);
-        recyclerView.setAdapter(anunciosAdapter);
-        //recyclerView.setHasFixedSize(true);
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Activity a = getActivity();
+        TextView r =a.findViewById(R.id.idEmpresa);
+        binding.setHome(new HomeViewModel((String) r.getText(),getContext()));
+
+        //DataEmpresa dataEmpresa = new DataEmpresa(getContext());
+        //Empresa empresa=dataEmpresa.buscarEmpresa(Integer.parseInt((String) r.getText()));
+        //binding.textViewEmpresa.setText(empresa.getNombre());
     }
 
     @Override

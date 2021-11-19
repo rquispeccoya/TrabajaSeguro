@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:backgroundTint="@null"
-    android:background="@drawable/backadd">
+    android:background="#F4A507">
 
     <data>
+
 
     </data>
 

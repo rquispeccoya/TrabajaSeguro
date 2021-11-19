@@ -70,7 +70,7 @@
             android:layout_marginTop="120dp"
             android:background="@drawable/button"
             app:backgroundTint="@null"
-            android:onClick="@{()->login.onFormularioPaciente()}"
+            android:onClick="@{()->login.onIniciarSesion()}"
             android:text="Iniciar Sesion"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintLeft_toLeftOf="parent"

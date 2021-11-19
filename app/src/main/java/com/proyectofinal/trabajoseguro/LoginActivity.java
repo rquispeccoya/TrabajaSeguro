@@ -3,17 +3,10 @@ package com.proyectofinal.trabajoseguro;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.proyectofinal.trabajoseguro.databinding.ActivityLoginBinding;
-import com.proyectofinal.trabajoseguro.model.ConexionSQLite;
-import com.proyectofinal.trabajoseguro.model.Empresa;
 import com.proyectofinal.trabajoseguro.viewmodels.LoginViewModel;
-
-import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,7 +17,19 @@ public class LoginActivity extends AppCompatActivity {
         ActivityLoginBinding activityLoginBinding= DataBindingUtil.setContentView(this,R.layout.activity_login);
         activityLoginBinding.setLogin(new LoginViewModel(this));
         activityLoginBinding.executePendingBindings();
-        // PARA VER EN CONSOLA LAS EMPRESAS REGISTRADAS
+
+    }
+}
+
+
+
+
+
+
+
+
+
+// PARA VER EN CONSOLA LAS EMPRESAS REGISTRADAS
        /* ArrayList<Empresa> EmpresasRegistradas = new ArrayList<>();
         ConexionSQLite c = new ConexionSQLite(this, "bd_trabajaseguro", null, 1, null);
         SQLiteDatabase bd = c.getReadableDatabase();
@@ -48,5 +53,3 @@ public class LoginActivity extends AppCompatActivity {
         for (int i = 0; i < EmpresasRegistradas.size(); ++i) {
             Log.i("Empresa ", EmpresasRegistradas.get(i).toString());
         }*/
-    }
-}

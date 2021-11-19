@@ -1,4 +1,4 @@
-package com.proyectofinal.trabajoseguro;
+package com.proyectofinal.trabajoseguro.ui.crearAnuncio;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +33,7 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.proyectofinal.trabajoseguro.R;
 
 public class MapsFragment extends Fragment {
     private LocationManager ubicacion;
@@ -56,9 +57,13 @@ public class MapsFragment extends Fragment {
                         googleMap.clear();
                         //Animar la camara
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                                latLng, 10
+                                latLng, 11
                         ));
                         googleMap.addMarker(markerOptions);
+                        Bundle result = new Bundle();
+                        result.putString("la", String.valueOf(latLng.latitude));
+                        result.putString("lo", String.valueOf(latLng.longitude));
+                        getParentFragmentManager().setFragmentResult("requestKey", result);
                     }
 
 

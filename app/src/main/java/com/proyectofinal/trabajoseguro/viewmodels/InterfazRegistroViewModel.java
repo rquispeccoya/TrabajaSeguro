@@ -6,10 +6,9 @@ import android.content.Intent;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
-import com.proyectofinal.trabajoseguro.InterfazUsuarioActivity;
 import com.proyectofinal.trabajoseguro.LoginActivity;
-import com.proyectofinal.trabajoseguro.model.DataEmpresa;
-import com.proyectofinal.trabajoseguro.model.Empresa;
+import com.proyectofinal.trabajoseguro.model.DAO.DataEmpresa;
+import com.proyectofinal.trabajoseguro.model.entity.Empresa;
 
 public class InterfazRegistroViewModel extends BaseObservable {
     private Context context;

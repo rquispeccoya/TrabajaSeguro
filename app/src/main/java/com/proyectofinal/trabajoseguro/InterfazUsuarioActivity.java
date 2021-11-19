@@ -1,8 +1,14 @@
 package com.proyectofinal.trabajoseguro;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -17,13 +23,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectofinal.trabajoseguro.databinding.ActivityInterfazUsuarioBinding;
-import com.proyectofinal.trabajoseguro.model.Anuncio;
-import com.proyectofinal.trabajoseguro.model.iComunicaFragments;
 
-public class InterfazUsuarioActivity extends AppCompatActivity  implements iComunicaFragments {
 
+
+public class InterfazUsuarioActivity extends AppCompatActivity{
+    public int idEmpresa;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInterfazUsuarioBinding binding;
+    private TextView textView, textView2, textView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +46,51 @@ public class InterfazUsuarioActivity extends AppCompatActivity  implements iComu
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_crear_anuncio,R.id.nav_detalle_anuncio)
+                R.id.nav_home, R.id.nav_crear_anuncio, R.id.nav_ver_anuncio)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_interfaz_usuario);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        idEmpresa = getIntent().getIntExtra("idEmpresa", -1);
+        TextView loco = findViewById(R.id.idEmpresa);
+        loco.setText(idEmpresa + "");
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.interfaz_usuario, menu);
+
+        //recibe los datos enviados desde el login
+        idEmpresa = getIntent().getIntExtra("idEmpresa", -1);
+        String nombreEmp = (getIntent().getStringExtra("nombreEmpresa"));
+        String encargadoEmp = (getIntent().getStringExtra("encargadoEmpresa"));
+        textView = findViewById(R.id.nombreInterfazUsuario);
+        textView2 = findViewById(R.id.encargadoInterfazUsuario);
+        textView3 = findViewById(R.id.idInterfazUsuario);
+
+        textView.setText(nombreEmp);
+        textView2.setText(encargadoEmp);
+        textView3.setText("" + idEmpresa);
+
         return true;
+    }
+
+    //establecemos la funcion de cerrar sesion
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent intent1 = new Intent(this, LoginActivity.class);
+            this.startActivity(intent1);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -61,11 +100,21 @@ public class InterfazUsuarioActivity extends AppCompatActivity  implements iComu
                 || super.onSupportNavigateUp();
     }
 
+}
 
+
+
+
+
+
+
+
+
+/*
+    //enviamos los datos del fragment anuncio al segundo fragment
     @Override
     public void enviarAnuncio(Anuncio anuncio) {
         System.out.println("ENTRO EN ANUNCIO ENVIARRRR");
-            //gracias a hbaer implementado de la interface "iComunicaFragments" se tiene la implementacion del metodo enviarPersona
             //o mejor dicho este metodo.
             //Aqui se realiza toda la logica necesaria para poder realizar el envio
             AnuncioDetalleFragment anuncioDetalleFragment = new AnuncioDetalleFragment();
@@ -75,6 +124,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity  implements iComu
             bundleEnvio.putSerializable("objeto",anuncio);
             anuncioDetalleFragment.setArguments(bundleEnvio);
 
+
             //CArgar fragment en el activity
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -83,4 +133,4 @@ public class InterfazUsuarioActivity extends AppCompatActivity  implements iComu
             fragmentTransaction.commit();
 
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package com.proyectofinal.trabajoseguro.model;
+package com.proyectofinal.trabajoseguro.model.entity;
 
 import java.io.Serializable;
 
@@ -11,6 +11,7 @@ public class Anuncio  implements Serializable {
     private double longitud;
     private int estado;
     private int idUsuario;
+    private String nombreCategoria;
 
     public Anuncio(String titulo, String descripcion) {
         this.titulo = titulo;
@@ -78,6 +79,14 @@ public class Anuncio  implements Serializable {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
     }
 
     @Override

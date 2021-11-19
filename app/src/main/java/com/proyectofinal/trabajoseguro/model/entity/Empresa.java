@@ -1,4 +1,4 @@
-package com.proyectofinal.trabajoseguro.model;
+package com.proyectofinal.trabajoseguro.model.entity;
 
 public class Empresa {
     private int id_empresa;

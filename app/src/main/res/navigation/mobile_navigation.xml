@@ -7,21 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.proyectofinal.trabajoseguro.ListaAnunciosFragment"
+        android:name="com.proyectofinal.trabajoseguro.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_lista_anuncios" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.proyectofinal.trabajoseguro.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.proyectofinal.trabajoseguro.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_crear_anuncio"
@@ -29,9 +17,10 @@
         android:label="Crear anuncio"
         tools:layout="@layout/fragment_crear_anuncio" />
 
+
     <fragment
-        android:id="@+id/nav_detalle_anuncio"
-        android:name="com.proyectofinal.trabajoseguro.AnuncioDetalleFragment"
-        android:label="Detalle anuncio"
-        tools:layout="@layout/fragment_anuncio_detalle" />
+        android:id="@+id/nav_ver_anuncio"
+        android:name="com.proyectofinal.trabajoseguro.ui.verAnuncios.ListaAnunciosFragment"
+        android:label="Ver mis anuncios"
+        tools:layout="@layout/fragment_lista_anuncios" />
 </navigation>

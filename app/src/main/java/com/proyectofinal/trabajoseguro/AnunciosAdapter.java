@@ -7,10 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.proyectofinal.trabajoseguro.model.Anuncio;
+import com.proyectofinal.trabajoseguro.model.entity.Anuncio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.ViewHo
             holder.titulo.setText(mData.get(position).getTitulo());
             holder.descripcion.setText(mData.get(position).getDescripcion());
 
-            holder.categoria.setText(String.valueOf(mData.get(position).getCategoria()));
+            holder.categoria.setText(String.valueOf(mData.get(position).getNombreCategoria()));
     }
 
     public void filtrado(final String txtBuscar) {

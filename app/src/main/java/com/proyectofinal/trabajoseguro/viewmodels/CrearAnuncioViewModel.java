@@ -6,19 +6,21 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.proyectofinal.trabajoseguro.BR;
-import com.proyectofinal.trabajoseguro.model.Anuncio;
-import com.proyectofinal.trabajoseguro.model.Categoria;
-import com.proyectofinal.trabajoseguro.model.DataAnuncio;
-import com.proyectofinal.trabajoseguro.model.DataCategoria;
+import com.proyectofinal.trabajoseguro.model.entity.Anuncio;
+import com.proyectofinal.trabajoseguro.model.DAO.DataAnuncio;
+import com.proyectofinal.trabajoseguro.model.DAO.DataCategoria;
 
 public class CrearAnuncioViewModel extends BaseObservable {
     private Anuncio anuncio;
     private Context context;
+    private int idEmpresa;
     private String men = "hola";
-
-    public CrearAnuncioViewModel(Context context) {
+    @Bindable
+    private int selectedItemPosition;
+    public CrearAnuncioViewModel(Context context,String id) {
         this.anuncio = new Anuncio();
         this.context = context;
+        this.idEmpresa=Integer.parseInt(id);
     }
 
     public void setCrearAnuncioTitulo(String titulo) {
@@ -76,7 +78,7 @@ public class CrearAnuncioViewModel extends BaseObservable {
     public void onClickRegistrarAnuncio() {
         setMen(anuncio.getTitulo());
         DataAnuncio dataAnuncio = new DataAnuncio(context.getApplicationContext());
-        anuncio.setIdUsuario(1);
+        anuncio.setIdUsuario(idEmpresa);
         anuncio.setCategoria(getSelectedItemPosition()+1);
 
         dataAnuncio.guardarAnuncio(anuncio);
@@ -96,8 +98,6 @@ public class CrearAnuncioViewModel extends BaseObservable {
     }
 
 
-    @Bindable
-    private int selectedItemPosition;
 
     @Bindable
     public int getSelectedItemPosition() {
@@ -113,6 +113,4 @@ public class CrearAnuncioViewModel extends BaseObservable {
         DataCategoria dataCategoria = new DataCategoria(context.getApplicationContext());
         return dataCategoria.listaCategorias();
     }
-
-
 }

@@ -1,9 +1,11 @@
-package com.proyectofinal.trabajoseguro.model;
+package com.proyectofinal.trabajoseguro.model.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.proyectofinal.trabajoseguro.model.ConexionSQLite;
 
 import java.util.ArrayList;
 

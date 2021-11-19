@@ -66,7 +66,12 @@ public class ConexionSQLite extends  SQLiteOpenHelper{
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Granjero')");
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Profesor')");
         db.execSQL("INSERT INTO Categoria (nombre) VALUES('Pintor')");
-        //db.execSQL("INSERT INTO Empresa (nombre, encargado, correo, telefono, ruc, usuario, contrasenia, descripcion, direccion, departamento) VALUES('Elite', 'Jordan', 'jlaqui@unsa.edu.pe', '921242901', '123', 'admin', 'admin', 'Papeleria', 'Av 123', 'Arequipa')");
+        db.execSQL("INSERT INTO Empresa (nombre, encargado, correo," +
+                " telefono, ruc, usuario, contrasenia, descripcion," +
+                " direccion, departamento) " +
+                "VALUES('Elite', 'Jordan', 'jlaqui@unsa.edu.pe', " +
+                "'921242901', '123', 'a', 'a', 'Papeleria', " +
+                "'Av 123', 'Arequipa')");
 
     }
 
