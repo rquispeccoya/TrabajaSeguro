@@ -1,8 +1,11 @@
 package com.proyectofinal.trabajoseguro.viewmodels;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
@@ -10,6 +13,7 @@ import androidx.databinding.Bindable;
 
 import com.proyectofinal.trabajoseguro.InterfazRegistroActivity;
 import com.proyectofinal.trabajoseguro.InterfazUsuarioActivity;
+import com.proyectofinal.trabajoseguro.LoginActivity;
 import com.proyectofinal.trabajoseguro.model.DAO.DataLogin;
 import com.proyectofinal.trabajoseguro.model.entity.Empresa;
 import com.proyectofinal.trabajoseguro.model.entity.Login;
@@ -17,9 +21,11 @@ import com.proyectofinal.trabajoseguro.model.entity.Login;
 public class LoginViewModel extends BaseObservable {
     private Context context;
     private Login login;
-
+    Context applicationContext = LoginActivity.getContextOfApplication() ;
+    SharedPreferences prefs;
     public LoginViewModel(Context context){
         this.context=context;
+        prefs = PreferenceManager.getDefaultSharedPreferences(applicationContext);
         login = new Login();
     }
 
@@ -30,6 +36,7 @@ public class LoginViewModel extends BaseObservable {
     @Bindable public String getLoginContrasenia() {return login.getContrasenia();}
 
     public void onIniciarSesion() {
+        SharedPreferences.Editor editor=prefs.edit();
 
         DataLogin dataLogin = new DataLogin(context.getApplicationContext());
         Empresa empresa = dataLogin.buscarEmpresa(login);
@@ -39,7 +46,10 @@ public class LoginViewModel extends BaseObservable {
             bundle.putInt("idEmpresa", empresa.getId_empresa());
             bundle.putString("nombreEmpresa",empresa.getNombre());
             bundle.putString("encargadoEmpresa",empresa.getEncargado());
-
+            editor.putInt("idEmpresa",empresa.getId_empresa());
+            editor.putString("nombreEmpresa",empresa.getNombre()+" ");
+            editor.putString("encargadoEmpresa",empresa.getEncargado()+" ");
+            editor.commit();
             Intent intent = new Intent(context, InterfazUsuarioActivity.class);
             intent.putExtras(bundle);
             context.startActivity(intent);

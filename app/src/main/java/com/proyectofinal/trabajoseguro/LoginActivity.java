@@ -3,22 +3,52 @@ package com.proyectofinal.trabajoseguro;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 import com.proyectofinal.trabajoseguro.databinding.ActivityLoginBinding;
 import com.proyectofinal.trabajoseguro.viewmodels.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
-
+    private SharePreferenceHandler sharePreferenceHandler;
+    public static Context contextOfApplication;
+    SharedPreferences prefs;
+    boolean sesion=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        sharePreferenceHandler=new SharePreferenceHandler(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+       sesion=getSesion();
+
+        if(sesion){
+            Bundle bundle = new Bundle();
+            bundle.putInt("idEmpresa",prefs.getInt("idEmpresa",1));
+            bundle.putString("nombreEmpresa",prefs.getString("nombreEmpresa",""));
+            bundle.putString("encargadoEmpresa",prefs.getString("encargadoEmpresa",""));
+            System.out.println("Nombre de la empresa:"+prefs.getString("nombreEmpresa",""));
+            System.out.println("Id de la empresa:"+prefs.getInt("idEmpresa",7));
+          Intent intent = new Intent(this, InterfazUsuarioActivity.class);
+           intent.putExtras(bundle);
+          this.startActivity(intent);
+        }
+        contextOfApplication = getApplicationContext();
         ActivityLoginBinding activityLoginBinding= DataBindingUtil.setContentView(this,R.layout.activity_login);
         activityLoginBinding.setLogin(new LoginViewModel(this));
         activityLoginBinding.executePendingBindings();
+        System.out.println(sharePreferenceHandler.getValueBoolean("sesion"));
+
 
     }
+    public boolean getSesion(){
+        return sharePreferenceHandler.getValueBoolean("sesion");
+    }
+    public static Context getContextOfApplication(){ return contextOfApplication; }
+
 }
 
 

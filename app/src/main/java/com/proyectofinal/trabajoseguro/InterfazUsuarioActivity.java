@@ -1,8 +1,11 @@
 package com.proyectofinal.trabajoseguro;
 
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -28,10 +31,11 @@ import com.proyectofinal.trabajoseguro.databinding.ActivityInterfazUsuarioBindin
 
 public class InterfazUsuarioActivity extends AppCompatActivity{
     public int idEmpresa;
+    private SharePreferenceHandler sharePreferenceHandler;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInterfazUsuarioBinding binding;
     private TextView textView, textView2, textView3;
-
+    SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +60,10 @@ public class InterfazUsuarioActivity extends AppCompatActivity{
         TextView loco = findViewById(R.id.idEmpresa);
         loco.setText(idEmpresa + "");
 
-
+        sharePreferenceHandler=new SharePreferenceHandler(this);
+        sharePreferenceHandler.saveValue("sesion",true);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        System.out.println(sharePreferenceHandler.getValueBoolean("sesion"));
     }
 
     @Override
@@ -66,7 +73,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity{
         getMenuInflater().inflate(R.menu.interfaz_usuario, menu);
 
         //recibe los datos enviados desde el login
-        idEmpresa = getIntent().getIntExtra("idEmpresa", -1);
+        idEmpresa = getIntent().getIntExtra("idEmpresa", 1);
         String nombreEmp = (getIntent().getStringExtra("nombreEmpresa"));
         String encargadoEmp = (getIntent().getStringExtra("encargadoEmpresa"));
         textView = findViewById(R.id.nombreInterfazUsuario);
@@ -87,6 +94,10 @@ public class InterfazUsuarioActivity extends AppCompatActivity{
         if (id == R.id.action_settings) {
             Intent intent1 = new Intent(this, LoginActivity.class);
             this.startActivity(intent1);
+            sharePreferenceHandler.deleteValue("sesion");
+            sharePreferenceHandler.deleteValue("idEmpresa");
+            sharePreferenceHandler.deleteValue("nombreEmpresa");
+            sharePreferenceHandler.deleteValue("encargadoEmpresa");
             finish();
             return true;
         }
