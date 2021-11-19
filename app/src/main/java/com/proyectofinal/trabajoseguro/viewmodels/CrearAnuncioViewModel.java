@@ -1,6 +1,7 @@
 package com.proyectofinal.trabajoseguro.viewmodels;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -14,13 +15,14 @@ public class CrearAnuncioViewModel extends BaseObservable {
     private Anuncio anuncio;
     private Context context;
     private int idEmpresa;
-    private String men = "hola";
+
     @Bindable
     private int selectedItemPosition;
-    public CrearAnuncioViewModel(Context context,String id) {
+
+    public CrearAnuncioViewModel(Context context, String id) {
         this.anuncio = new Anuncio();
         this.context = context;
-        this.idEmpresa=Integer.parseInt(id);
+        this.idEmpresa = Integer.parseInt(id);
     }
 
     public void setCrearAnuncioTitulo(String titulo) {
@@ -39,11 +41,12 @@ public class CrearAnuncioViewModel extends BaseObservable {
 
     public void setCrearAnuncioLatitud(String latitud) {
         anuncio.setLatitud(Double.parseDouble(latitud));
+        notifyPropertyChanged(BR.crearAnuncioLatitud);
     }
 
     public void setCrearAnuncioLongitud(String longitud) {
-
         anuncio.setLongitud(Double.parseDouble(longitud));
+
     }
 
     public void setCrearAnuncioIdUsuario(int idUsuario) {
@@ -54,50 +57,52 @@ public class CrearAnuncioViewModel extends BaseObservable {
     public String getCrearAnuncioTitulo() {
         return anuncio.getTitulo();
     }
+
     @Bindable
     public String getCrearAnuncioDescripcion() {
         return anuncio.getDescripcion();
     }
+
     @Bindable
     public int getCrearAnuncioCategoria() {
         return anuncio.getCategoria();
     }
+
     @Bindable
     public String getCrearAnuncioLatitud() {
         return String.valueOf(anuncio.getLatitud());
     }
+
     @Bindable
     public String getCrearAnuncioLongitud() {
         return String.valueOf(anuncio.getLongitud());
     }
+
     @Bindable
     public int getCrearAnuncioIdUsuario() {
-        return  anuncio.getIdUsuario();
+        return anuncio.getIdUsuario();
     }
 
     public void onClickRegistrarAnuncio() {
-        setMen(anuncio.getTitulo());
-        DataAnuncio dataAnuncio = new DataAnuncio(context.getApplicationContext());
-        anuncio.setIdUsuario(idEmpresa);
-        anuncio.setCategoria(getSelectedItemPosition()+1);
 
-        dataAnuncio.guardarAnuncio(anuncio);
-        System.out.println(anuncio.toString());
-        setCrearAnuncioTitulo("");
-        setCrearAnuncioDescripcion("");
+
+        if (getCrearAnuncioTitulo() == null || getCrearAnuncioDescripcion() == null||getCrearAnuncioTitulo() == "" || getCrearAnuncioDescripcion() == "") {
+            Toast.makeText(context.getApplicationContext(), "!! Rellene los campos !!", Toast.LENGTH_SHORT).show();
+
+        } else if (Double.parseDouble(getCrearAnuncioLatitud()) == 0.0) {
+            Toast.makeText(context.getApplicationContext(), "!! Seleccione ubicacion del negocio !!", Toast.LENGTH_SHORT).show();
+
+        } else {
+            DataAnuncio dataAnuncio = new DataAnuncio(context.getApplicationContext());
+            anuncio.setIdUsuario(idEmpresa);
+            anuncio.setCategoria(getSelectedItemPosition() + 1);
+            dataAnuncio.guardarAnuncio(anuncio);
+            Toast.makeText(context.getApplicationContext(), "!! Anuncio Registrado !!", Toast.LENGTH_SHORT).show();
+            setCrearAnuncioTitulo("");
+            setCrearAnuncioDescripcion("");
+            setCrearAnuncioLatitud(String.valueOf(0.0));
+        }
     }
-
-    @Bindable
-    public String getMen() {
-        return men;
-    }
-
-    public void setMen(String men) {
-        this.men = men;
-        notifyPropertyChanged(BR.men);
-    }
-
-
 
     @Bindable
     public int getSelectedItemPosition() {
