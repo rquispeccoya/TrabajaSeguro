@@ -39,7 +39,7 @@
             android:hint="latitud"
             android:inputType="textPersonName"
             android:text="@={crearAnuncio.crearAnuncioLatitud}"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/spinner"
             app:layout_constraintEnd_toStartOf="@+id/editTextLongitud"
             app:layout_constraintHorizontal_bias="0.753"
