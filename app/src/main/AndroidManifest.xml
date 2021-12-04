@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrabajoSeguro">
         <activity
+            android:name=".InterfazTrabajadorActivity"
+            android:exported="true" />
+        <activity
             android:name=".InterfazRegistroActivity"
             android:exported="false" />
         <!--

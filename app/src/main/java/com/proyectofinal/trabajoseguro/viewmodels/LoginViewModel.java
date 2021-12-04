@@ -12,6 +12,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.proyectofinal.trabajoseguro.InterfazRegistroActivity;
+import com.proyectofinal.trabajoseguro.InterfazTrabajadorActivity;
 import com.proyectofinal.trabajoseguro.InterfazUsuarioActivity;
 import com.proyectofinal.trabajoseguro.LoginActivity;
 import com.proyectofinal.trabajoseguro.model.DAO.DataLogin;
@@ -61,6 +62,11 @@ public class LoginViewModel extends BaseObservable {
 
     public void onFormularioRegistro() {
         Intent intent = new Intent(context, InterfazRegistroActivity.class);
+        context.startActivity(intent);
+    }
+
+    public void onBuscarTrabajo() {
+        Intent intent = new Intent(context, InterfazTrabajadorActivity.class);
         context.startActivity(intent);
     }
 

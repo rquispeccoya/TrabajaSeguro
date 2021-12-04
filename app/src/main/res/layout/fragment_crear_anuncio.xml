@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.crearAnuncio.CrearAnuncioFragment">
+        tools:context=".ui.crearAnuncioEmpresa.CrearAnuncioFragment">
 
         <EditText
             android:id="@+id/editTextTitulo"
@@ -48,7 +48,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:name="com.proyectofinal.trabajoseguro.ui.crearAnuncio.MapsFragment"
+            android:name="com.proyectofinal.trabajoseguro.ui.crearAnuncioEmpresa.MapsFragment"
             android:layout_width="409dp"
             android:layout_height="396dp"
             app:layout_constraintBottom_toBottomOf="parent"

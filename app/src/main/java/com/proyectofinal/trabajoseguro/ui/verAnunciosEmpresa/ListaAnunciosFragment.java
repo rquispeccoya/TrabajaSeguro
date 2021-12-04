@@ -1,4 +1,4 @@
-package com.proyectofinal.trabajoseguro.ui.verAnuncios;
+package com.proyectofinal.trabajoseguro.ui.verAnunciosEmpresa;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_buscar_mapa"
+        android:title="MAPA"
+        android:icon="@android:drawable/ic_lock_idle_lock"/>
+    <item
+        android:id="@+id/nav_buscar_lista"
+        android:title="LISTA"
+        android:icon="@android:drawable/btn_star"/>
+
+    <item
+        android:id="@+id/nav_grafico_barra"
+        android:title="GRAFICO BARRAS"
+        android:icon="@android:drawable/ic_dialog_alert"/>
+</menu>

@@ -1,4 +1,4 @@
-package com.proyectofinal.trabajoseguro.ui.home;
+package com.proyectofinal.trabajoseguro.ui.homeEmpresa;
 
 import android.app.Activity;
 import android.os.Bundle;

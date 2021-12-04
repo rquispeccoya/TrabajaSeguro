@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/drawable/ic_baseline_bar_chart_24.xml" value="0.21770833333333334" />
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.2609375" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/activity_interfaz_registro.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/activity_interfaz_trabajador.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/activity_interfaz_usuario.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/app_bar_interfaz_usuario.xml" value="0.20104166666666667" />
@@ -12,12 +15,16 @@
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_anuncio_detalle.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_crear_anuncio.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_gallery.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_grafico_barras.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_lista_anuncios.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_lista_trabajador.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_mapa_trabajador.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_maps.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/fragment_slideshow.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/layout/nav_header_interfaz_usuario.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/menu/activity_main_drawer.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/menu/interfaz_trabajador.xml" value="0.24479166666666666" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/ProyectoFinalIDNP/TrabajaSeguro/app/src/main/res/menu/interfaz_usuario.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/TrabajoSeguro/app/src/main/res/layout/activity_interfaz_usuario.xml" value="0.33589743589743587" />
         <entry key="..\:/Users/Royer/AndroidStudioProjects/TrabajoSeguro/app/src/main/res/layout/activity_login.xml" value="0.33589743589743587" />

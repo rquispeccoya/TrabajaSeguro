@@ -1,10 +1,9 @@
-package com.proyectofinal.trabajoseguro.ui.crearAnuncio;
+package com.proyectofinal.trabajoseguro.ui.crearAnuncioEmpresa;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
@@ -12,13 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.proyectofinal.trabajoseguro.R;
 import com.proyectofinal.trabajoseguro.databinding.FragmentCrearAnuncioBinding;
-import com.proyectofinal.trabajoseguro.databinding.FragmentHomeBinding;
 import com.proyectofinal.trabajoseguro.viewmodels.CrearAnuncioViewModel;
 
 
