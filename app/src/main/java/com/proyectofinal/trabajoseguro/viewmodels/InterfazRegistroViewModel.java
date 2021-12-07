@@ -2,6 +2,8 @@ package com.proyectofinal.trabajoseguro.viewmodels;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Patterns;
+import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -9,6 +11,8 @@ import androidx.databinding.Bindable;
 import com.proyectofinal.trabajoseguro.LoginActivity;
 import com.proyectofinal.trabajoseguro.model.DAO.DataEmpresa;
 import com.proyectofinal.trabajoseguro.model.entity.Empresa;
+
+import java.util.regex.Pattern;
 
 public class InterfazRegistroViewModel extends BaseObservable {
     private Context context;
@@ -43,10 +47,70 @@ public class InterfazRegistroViewModel extends BaseObservable {
     @Bindable public String getEmpresaDepartamento() {return empresa.getDepartamento();}
 
     public void onClickRegistrar() {
-        DataEmpresa dataEmpresa = new DataEmpresa(context.getApplicationContext());
-        dataEmpresa.registrarEmpresa(empresa);
-        Intent intent = new Intent(context, LoginActivity.class);
-        context.startActivity(intent);
+
+        if(validate()) {
+            DataEmpresa dataEmpresa = new DataEmpresa(context.getApplicationContext());
+            dataEmpresa.registrarEmpresa(empresa);
+            Intent intent = new Intent(context, LoginActivity.class);
+            context.startActivity(intent);
+
+        }
+    }
+
+    private boolean validate(){
+        boolean resultC=validarEmail(empresa.getCorreo());
+        System.out.println(resultC);
+        boolean resultT=validarMovilER(empresa.getTelefono());
+        System.out.println(resultT);
+        boolean resultR=validarRUC(empresa.getRuc());
+        System.out.println(resultR);
+        if(resultC && resultT && resultR){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        // boolean espacioVacio=email.equals(" ");
+        System.out.println("valor de email"+email);
+
+
+        boolean emailValidado=pattern.matcher(email).matches();
+        if(emailValidado==false){
+            Toast.makeText(context.getApplicationContext(), "Por favor ingresar un correo electrónico válido", Toast.LENGTH_LONG).show();
+        }
+
+        return  emailValidado;
+    }
+    private boolean validarMovilER(String movil) {
+        Pattern pattern = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{3}");
+        //  boolean espacioVacio;
+        /*
+        if (movil.equals(" ")) {
+            //    Toast.makeText(context.getApplicationContext(), "Ha dejado el campo vacio", Toast.LENGTH_SHORT).show();
+            System.out.println("espacio vacio del movil");
+        }
+        */
+
+        boolean movilValidado=pattern.matcher(movil).matches();
+        if(movilValidado==false){
+            Toast.makeText(context.getApplicationContext(), "Por favor ingresar un número válido", Toast.LENGTH_LONG).show();
+        }
+        return movilValidado;
+    }
+    private boolean validarRUC(String ruc){
+        Pattern pattern = Pattern.compile("[0-9]{11}");
+        //   if(ruc.equals(" ")){
+        //     Toast.makeText(context.getApplicationContext(), "Ha dejado el campo vacio", Toast.LENGTH_SHORT).show();
+        //      System.out.println("espacio vacio del ruc");
+        //  }
+
+        boolean rucValidado=pattern.matcher(ruc).matches();
+        if(rucValidado==false){
+            Toast.makeText(context.getApplicationContext(), "Por favor ingresar ruc válido", Toast.LENGTH_LONG).show();
+        }
+        return rucValidado;
     }
 
 }
