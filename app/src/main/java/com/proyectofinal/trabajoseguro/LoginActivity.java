@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         sharePreferenceHandler=new SharePreferenceHandler(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
        sesion=getSesion();
-
+/*
         if(sesion){
             Bundle bundle = new Bundle();
             bundle.putInt("idEmpresa",prefs.getInt("idEmpresa",1));
@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
           Intent intent = new Intent(this, InterfazUsuarioActivity.class);
            intent.putExtras(bundle);
           this.startActivity(intent);
-        }
+        }*/
         contextOfApplication = getApplicationContext();
         ActivityLoginBinding activityLoginBinding= DataBindingUtil.setContentView(this,R.layout.activity_login);
         activityLoginBinding.setLogin(new LoginViewModel(this));

@@ -33,12 +33,12 @@ public class DataAnuncio {
     }
 
     public ArrayList<Anuncio> listaAnuncios(String idEm){
-        int idEmpresa= Integer.parseInt(idEm);
+        //int idEmpresa= Integer.parseInt(idEm);
         ArrayList<Anuncio> anuncios= new ArrayList<>();
         ConexionSQLite conn= new ConexionSQLite(context, "bd_trabajaseguro", null, 1, null);
         SQLiteDatabase db = conn.getReadableDatabase();
         //Cursor cursor = db.rawQuery(" SELECT*FROM Anuncios WHERE idUsuario ="+idEmpresa, null);
-        Cursor cursor = db.rawQuery(" SELECT a.titulo,a.descripcion,c.nombre FROM Anuncios as a, Categoria as c WHERE a.idCat = c.idCat AND idUsuario ="+idEmpresa, null);
+        Cursor cursor = db.rawQuery(" SELECT a.titulo,a.descripcion,c.nombre FROM Anuncios as a, Categoria as c WHERE a.idCat = c.idCat AND idUsuario ='"+idEm+"'", null);
         while(cursor.moveToNext()){
             Anuncio anuncio=new Anuncio();
 

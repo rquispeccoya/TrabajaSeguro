@@ -22,8 +22,10 @@ import com.proyectofinal.trabajoseguro.model.entity.Login;
 public class LoginViewModel extends BaseObservable {
     private Context context;
     private Login login;
+
     Context applicationContext = LoginActivity.getContextOfApplication() ;
     SharedPreferences prefs;
+
     public LoginViewModel(Context context){
         this.context=context;
         prefs = PreferenceManager.getDefaultSharedPreferences(applicationContext);
@@ -44,6 +46,7 @@ public class LoginViewModel extends BaseObservable {
 
         if(empresa != null){
             Bundle bundle = new Bundle();
+            bundle.putString("idUsuario",empresa.getUsuario());
             bundle.putInt("idEmpresa", empresa.getId_empresa());
             bundle.putString("nombreEmpresa",empresa.getNombre());
             bundle.putString("encargadoEmpresa",empresa.getEncargado());

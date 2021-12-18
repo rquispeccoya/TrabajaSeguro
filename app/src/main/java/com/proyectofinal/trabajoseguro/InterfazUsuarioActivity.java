@@ -30,7 +30,7 @@ import com.proyectofinal.trabajoseguro.databinding.ActivityInterfazUsuarioBindin
 
 
 public class InterfazUsuarioActivity extends AppCompatActivity{
-    public int idEmpresa;
+    public String idEmpresa;
     private SharePreferenceHandler sharePreferenceHandler;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInterfazUsuarioBinding binding;
@@ -56,9 +56,9 @@ public class InterfazUsuarioActivity extends AppCompatActivity{
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_interfaz_usuario);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        idEmpresa = getIntent().getIntExtra("idEmpresa", -1);
+        idEmpresa = getIntent().getStringExtra("idUsuario");
         TextView loco = findViewById(R.id.idEmpresa);
-        loco.setText(idEmpresa + "");
+        loco.setText(idEmpresa);
 
         sharePreferenceHandler=new SharePreferenceHandler(this);
         sharePreferenceHandler.saveValue("sesion",true);
@@ -73,7 +73,7 @@ public class InterfazUsuarioActivity extends AppCompatActivity{
         getMenuInflater().inflate(R.menu.interfaz_usuario, menu);
 
         //recibe los datos enviados desde el login
-        idEmpresa = getIntent().getIntExtra("idEmpresa", 1);
+        idEmpresa = getIntent().getStringExtra("idUsuario");
         String nombreEmp = (getIntent().getStringExtra("nombreEmpresa"));
         String encargadoEmp = (getIntent().getStringExtra("encargadoEmpresa"));
         textView = findViewById(R.id.nombreInterfazUsuario);

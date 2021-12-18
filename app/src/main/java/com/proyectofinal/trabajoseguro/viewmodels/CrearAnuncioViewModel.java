@@ -14,7 +14,7 @@ import com.proyectofinal.trabajoseguro.model.DAO.DataCategoria;
 public class CrearAnuncioViewModel extends BaseObservable {
     private Anuncio anuncio;
     private Context context;
-    private int idEmpresa;
+    private String idEmpresa;
 
     @Bindable
     private int selectedItemPosition;
@@ -22,7 +22,7 @@ public class CrearAnuncioViewModel extends BaseObservable {
     public CrearAnuncioViewModel(Context context, String id) {
         this.anuncio = new Anuncio();
         this.context = context;
-        this.idEmpresa = Integer.parseInt(id);
+        this.idEmpresa = id;
     }
 
     public void setCrearAnuncioTitulo(String titulo) {
@@ -49,7 +49,7 @@ public class CrearAnuncioViewModel extends BaseObservable {
 
     }
 
-    public void setCrearAnuncioIdUsuario(int idUsuario) {
+    public void setCrearAnuncioIdUsuario(String idUsuario) {
         anuncio.setIdUsuario(idUsuario);
     }
 
@@ -79,7 +79,7 @@ public class CrearAnuncioViewModel extends BaseObservable {
     }
 
     @Bindable
-    public int getCrearAnuncioIdUsuario() {
+    public String getCrearAnuncioIdUsuario() {
         return anuncio.getIdUsuario();
     }
 

@@ -26,6 +26,7 @@ public class DataLogin {
             empresa.setId_empresa(Integer.parseInt(cursor.getString(0)));
             empresa.setNombre(cursor.getString(1));
             empresa.setEncargado(cursor.getString(2));
+            empresa.setUsuario(cursor.getString(6));
             db.close();
           return empresa;
         }

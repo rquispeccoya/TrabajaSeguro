@@ -10,7 +10,7 @@ public class Anuncio  implements Serializable {
     private double latitud;
     private double longitud;
     private int estado;
-    private int idUsuario;
+    private String idUsuario;
     private String nombreCategoria;
 
     public Anuncio(String titulo, String descripcion) {
@@ -41,11 +41,11 @@ public class Anuncio  implements Serializable {
 
 
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 

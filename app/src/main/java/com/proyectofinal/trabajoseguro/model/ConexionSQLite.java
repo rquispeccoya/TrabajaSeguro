@@ -28,7 +28,7 @@ public class ConexionSQLite extends  SQLiteOpenHelper{
                 "  latitud REAL NOT NULL,\n" +
                 "  longitud REAL NOT NULL,\n" +
                 "  estado INTEGER NOT NULL DEFAULT 1,\n" +
-                "  idUsuario INTEGER NOT NULL,\n" +
+                "  idUsuario TEXT NOT NULL,\n" +
                 "  idCat INTEGER,\n" +
                 "  CONSTRAINT Relationship2 FOREIGN KEY (idCat) REFERENCES Categoria (idCat)\n" +
                 ")"

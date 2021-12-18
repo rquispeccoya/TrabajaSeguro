@@ -10,11 +10,11 @@ import com.proyectofinal.trabajoseguro.model.DAO.DataEmpresa;
 import com.proyectofinal.trabajoseguro.model.entity.Empresa;
 
 public class HomeViewModel extends BaseObservable {
-    private int id;
+    private String id;
     private Context context;
     private Empresa empresa;
     public HomeViewModel(String id,Context context){
-        this.id=Integer.parseInt(id);
+        this.id=id;
         this.context = context;
         DataEmpresa dataEmpresa = new DataEmpresa(this.context.getApplicationContext());
         empresa=dataEmpresa.buscarEmpresa(this.id);
