@@ -2,16 +2,22 @@ package com.proyectofinal.trabajoseguro.viewmodels;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Patterns;
 import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.proyectofinal.trabajoseguro.LoginActivity;
+import com.proyectofinal.trabajoseguro.model.ConexionSQLite;
 import com.proyectofinal.trabajoseguro.model.DAO.DataEmpresa;
 import com.proyectofinal.trabajoseguro.model.entity.Empresa;
 
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class InterfazRegistroViewModel extends BaseObservable {
@@ -51,9 +57,14 @@ public class InterfazRegistroViewModel extends BaseObservable {
         if(validate()) {
             DataEmpresa dataEmpresa = new DataEmpresa(context.getApplicationContext());
             dataEmpresa.registrarEmpresa(empresa);
+            //firebase
+            FirebaseDatabase firebaseDatabase;
+            DatabaseReference databaseReference;
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference = firebaseDatabase.getReference();
+            databaseReference.child("Empresa").child(UUID.randomUUID().toString()).setValue(empresa);
             Intent intent = new Intent(context, LoginActivity.class);
             context.startActivity(intent);
-
         }
     }
 
@@ -64,7 +75,7 @@ public class InterfazRegistroViewModel extends BaseObservable {
         System.out.println(resultT);
         boolean resultR=validarRUC(empresa.getRuc());
         System.out.println(resultR);
-        if(resultC && resultT && resultR){
+        if(resultC && resultT && resultR && ConsultarUsuario() && ConsultarCorreo()){
             return true;
         }else{
             return false;
@@ -112,5 +123,33 @@ public class InterfazRegistroViewModel extends BaseObservable {
         }
         return rucValidado;
     }
+
+    private boolean ConsultarUsuario() {
+        ConexionSQLite conn= new ConexionSQLite(context, "bd_trabajaseguro", null, 1, null);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT*FROM Empresa WHERE usuario='"+empresa.getUsuario()+"'", null);
+
+        if(cursor.getCount() == 0){
+            return true;
+        }else {
+            Toast.makeText(context.getApplicationContext(), "Usuario ya existente", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    private boolean ConsultarCorreo() {
+        ConexionSQLite conn= new ConexionSQLite(context, "bd_trabajaseguro", null, 1, null);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT*FROM Empresa WHERE correo='"+empresa.getCorreo()+"'", null);
+
+        if(cursor.getCount() == 0){
+            return true;
+        }else {
+            Toast.makeText(context.getApplicationContext(), "Correo ya registrado", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+
 
 }

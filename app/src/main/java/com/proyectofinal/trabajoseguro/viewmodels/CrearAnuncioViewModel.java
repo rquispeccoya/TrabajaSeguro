@@ -6,16 +6,21 @@ import android.widget.Toast;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.proyectofinal.trabajoseguro.BR;
+import com.proyectofinal.trabajoseguro.model.FireBaseConexion;
 import com.proyectofinal.trabajoseguro.model.entity.Anuncio;
 import com.proyectofinal.trabajoseguro.model.DAO.DataAnuncio;
 import com.proyectofinal.trabajoseguro.model.DAO.DataCategoria;
+
+import java.util.UUID;
 
 public class CrearAnuncioViewModel extends BaseObservable {
     private Anuncio anuncio;
     private Context context;
     private String idEmpresa;
-
+    //FireBaseConexion fireBaseConexion;
     @Bindable
     private int selectedItemPosition;
 
@@ -23,6 +28,8 @@ public class CrearAnuncioViewModel extends BaseObservable {
         this.anuncio = new Anuncio();
         this.context = context;
         this.idEmpresa = id;
+       // fireBaseConexion = new FireBaseConexion(context);
+        //fireBaseConexion.initFirebase();
     }
 
     public void setCrearAnuncioTitulo(String titulo) {
@@ -97,6 +104,16 @@ public class CrearAnuncioViewModel extends BaseObservable {
             anuncio.setIdUsuario(idEmpresa);
             anuncio.setCategoria(getSelectedItemPosition() + 1);
             dataAnuncio.guardarAnuncio(anuncio);
+
+            // test
+            FirebaseDatabase firebaseDatabase;
+            DatabaseReference databaseReference;
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference = firebaseDatabase.getReference();
+            databaseReference.child("Anuncio").child(UUID.randomUUID().toString()).setValue(anuncio);
+
+            //fireBaseConexion.AddAnuncio(anuncio);
+            //fireBaseConexion.UpdateAnunciosTable();
             Toast.makeText(context.getApplicationContext(), "!! Anuncio Registrado !!", Toast.LENGTH_SHORT).show();
             setCrearAnuncioTitulo("");
             setCrearAnuncioDescripcion("");

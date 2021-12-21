@@ -4,25 +4,41 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.proyectofinal.trabajoseguro.InterfazRegistroActivity;
 import com.proyectofinal.trabajoseguro.InterfazTrabajadorActivity;
 import com.proyectofinal.trabajoseguro.InterfazUsuarioActivity;
 import com.proyectofinal.trabajoseguro.LoginActivity;
+import com.proyectofinal.trabajoseguro.model.ConexionSQLite;
+import com.proyectofinal.trabajoseguro.model.DAO.DataAnuncio;
+import com.proyectofinal.trabajoseguro.model.DAO.DataEmpresa;
 import com.proyectofinal.trabajoseguro.model.DAO.DataLogin;
+import com.proyectofinal.trabajoseguro.model.FireBaseConexion;
+import com.proyectofinal.trabajoseguro.model.entity.Anuncio;
 import com.proyectofinal.trabajoseguro.model.entity.Empresa;
 import com.proyectofinal.trabajoseguro.model.entity.Login;
+
+import java.util.UUID;
 
 public class LoginViewModel extends BaseObservable {
     private Context context;
     private Login login;
-
     Context applicationContext = LoginActivity.getContextOfApplication() ;
     SharedPreferences prefs;
 
@@ -40,7 +56,6 @@ public class LoginViewModel extends BaseObservable {
 
     public void onIniciarSesion() {
         SharedPreferences.Editor editor=prefs.edit();
-
         DataLogin dataLogin = new DataLogin(context.getApplicationContext());
         Empresa empresa = dataLogin.buscarEmpresa(login);
 
@@ -59,18 +74,27 @@ public class LoginViewModel extends BaseObservable {
             context.startActivity(intent);
         }else{
             Toast.makeText(context.getApplicationContext(), "Datos incorrectos", Toast.LENGTH_SHORT).show();
-
         }
     }
 
     public void onFormularioRegistro() {
-        Intent intent = new Intent(context, InterfazRegistroActivity.class);
-        context.startActivity(intent);
+        if(isConnected()){
+            Intent intent = new Intent(context, InterfazRegistroActivity.class);
+            context.startActivity(intent);
+        }else {
+          Toast.makeText(context.getApplicationContext(), "Conectate a internet", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void onBuscarTrabajo() {
         Intent intent = new Intent(context, InterfazTrabajadorActivity.class);
         context.startActivity(intent);
+    }
+
+    public boolean isConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 
 }

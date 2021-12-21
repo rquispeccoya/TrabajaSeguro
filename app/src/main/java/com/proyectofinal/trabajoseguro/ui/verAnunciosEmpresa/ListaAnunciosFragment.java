@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.proyectofinal.trabajoseguro.AnunciosAdapter;
 import com.proyectofinal.trabajoseguro.R;
 import com.proyectofinal.trabajoseguro.databinding.FragmentListaAnunciosBinding;
+import com.proyectofinal.trabajoseguro.model.FireBaseConexion;
 import com.proyectofinal.trabajoseguro.model.entity.Anuncio;
 import com.proyectofinal.trabajoseguro.model.DAO.DataAnuncio;
 
@@ -31,7 +32,6 @@ public class ListaAnunciosFragment extends Fragment implements SearchView.OnQuer
     FragmentListaAnunciosBinding binding;
     TextView idText;
   //  Activity actividad;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +49,6 @@ public class ListaAnunciosFragment extends Fragment implements SearchView.OnQuer
     public void init() {
         // elements=new ArrayList<>();
         DataAnuncio dataAnuncio = new DataAnuncio(getContext());
-
         elements = dataAnuncio.listaAnuncios((String) idText.getText());
         //recyclerView=root.findViewById(R.id.ReciclerViewListaAnuncios);
         recyclerView = binding.ReciclerViewListaAnuncios;

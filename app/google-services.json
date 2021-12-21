@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "334047115579",
+    "firebase_url": "https://trabaja-seguro-default-rtdb.firebaseio.com",
+    "project_id": "trabaja-seguro",
+    "storage_bucket": "trabaja-seguro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334047115579:android:d2ce93160a2a9533ef9f1e",
+        "android_client_info": {
+          "package_name": "com.proyectofinal.trabajoseguro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334047115579-fqqjoapac6vgdcfs79c9psiua2clnln8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIXyIL8tBQL4iuaE-naobcuDfntxdpvCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334047115579-fqqjoapac6vgdcfs79c9psiua2clnln8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
