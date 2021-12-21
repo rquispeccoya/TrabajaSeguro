@@ -17,8 +17,8 @@
     <string name="permission_rationale_location">permission_rational_location</string>
     <string name="location_permission_denied">location_permission_denied</string>
     <!-- valores de las interfaces-->
-    <string name="tituloLogin">TRABAJA PERU</string>
-    <string name="noCuenta">¿No tienes cuenta? Registrate</string>
+    <string name="tituloLogin">WORK PERU</string>
+    <string name="noCuenta">You do not have an account? Sign up</string>
     <string-array name="departamentos">
         <item>Amazonas</item>
         <item>Ancash</item>
@@ -49,21 +49,22 @@
 
     <!--TEXTOS -->
     <!-- ACTIVITYS-->
-    <string name="IntRegistro_NuevaEmpresa">Nueva Empresa</string>
-    <string name="IntRegistro_Nombre">Nombre</string>
-    <string name="IntRegistro_Encargado">Encargado</string>
-    <string name="IntRegistro_Correo">Correo</string>
-    <string name="IntRegistro_Telefono">Telefono</string>
+    <string name="IntRegistro_NuevaEmpresa">New company</string>
+    <string name="IntRegistro_Nombre">Name</string>
+    <string name="IntRegistro_Encargado">In charge</string>
+    <string name="IntRegistro_Correo">Email</string>
+    <string name="IntRegistro_Telefono">Phone</string>
     <string name="IntRegistro_Ruc">RUC</string>
-    <string name="IntRegistro_Usuario">Usuario</string>
-    <string name="IntRegistro_Contrasena">Contrasena</string>
-    <string name="IntRegistro_Descripcion">Descripcion</string>
-    <string name="IntRegistro_Direccion">Direccion</string>
-    <string name="IntRegistro_Departamento">Departamento</string>
-    <string name="IntRegistro_Registrar">Registrar</string>
+    <string name="IntRegistro_Usuario">User</string>
+    <string name="IntRegistro_Contrasena">Password</string>
+    <string name="IntRegistro_Descripcion">Description</string>
+    <string name="IntRegistro_Direccion">Address</string>
+    <string name="IntRegistro_Departamento">Department</string>
+    <string name="IntRegistro_Registrar">Register</string>
 
-    <string name="Login_Usuario">Usuario</string>
-    <string name="Login_Contrasena">Contraseña</string>
-    <string name="Login_IniSesion">Iniciar Sesion</string>
-    <string name="Login_BuscoTrabajo">BUSCO TRABAJO</string>
+    <string name="Login_Usuario">User</string>
+    <string name="Login_Contrasena">Password</string>
+    <string name="Login_IniSesion">Log in</string>
+    <string name="Login_BuscoTrabajo">SEARCH FOR A JOB</string>
+
 </resources>
