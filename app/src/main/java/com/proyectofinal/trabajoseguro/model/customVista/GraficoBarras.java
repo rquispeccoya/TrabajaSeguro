@@ -1,4 +1,4 @@
-package com.proyectofinal.trabajoseguro;
+package com.proyectofinal.trabajoseguro.model.customVista;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -12,6 +12,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+
+import com.proyectofinal.trabajoseguro.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,13 +56,14 @@ public class GraficoBarras extends View {
 
             canvas.drawRect(rect,paint);
             canvas.drawText(tags[i],inicio,1575,paint);
+            canvas.drawText(String.valueOf(cantidad [i]),inicio+(tamEspacios)/2,500+1000-10*cantidad[i]-10,paint);
             cont++;
         }
     }
 
     private void pintarEjes (Canvas canvas){
         Paint paint = new Paint();
-        paint.setColor(ContextCompat.getColor(getContext(),R.color.dark));
+        paint.setColor(ContextCompat.getColor(getContext(), R.color.dark));
         paint.setTextSize(40);
         paint.setStrokeWidth(5);
 

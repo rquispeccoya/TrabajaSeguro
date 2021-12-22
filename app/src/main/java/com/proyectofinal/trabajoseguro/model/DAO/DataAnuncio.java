@@ -90,4 +90,24 @@ public class DataAnuncio {
 
         return anuncios;
     }
+
+    public Anuncio[] listaAnuncioxCategoria(){
+        ArrayList<Anuncio> anuncios= new ArrayList<>();
+        ConexionSQLite conn= new ConexionSQLite(context, "bd_trabajaseguro", null, 1, null);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT c.nombre, count(*) FROM Anuncios as a, Categoria as c WHERE c.idCat = a.idCat GROUP by a.idCat", null);
+        while(cursor.moveToNext()){
+            Anuncio anuncio=new Anuncio();
+
+            anuncio.setNombreCategoria(cursor.getString(0));
+            anuncio.setCategoria(Integer.parseInt(cursor.getString(1)));
+
+
+            anuncios.add(anuncio);
+        }
+        db.close();
+        Anuncio[]anuncios1= new Anuncio[anuncios.size()];
+        return anuncios.toArray(anuncios1);
+    }
+
 }
