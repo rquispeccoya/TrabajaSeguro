@@ -7,15 +7,15 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@android:drawable/ic_menu_my_calendar"
-            android:title="Perfil" />
+            android:title="@string/MainDrawer_Perfil"/>
 
         <item
             android:id="@+id/nav_crear_anuncio"
             android:icon="@android:drawable/ic_menu_edit"
-            android:title="Crear anuncio" />
+            android:title="@string/MainDrawer_CrearA" />
         <item
             android:id="@+id/nav_ver_anuncio"
             android:icon="?android:attr/actionModeFindDrawable"
-            android:title="Ver mis anuncios" />
+            android:title="@string/MainDrawer_VerA" />
     </group>
 </menu>

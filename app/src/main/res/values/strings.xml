@@ -48,7 +48,7 @@
     </string-array>
 
     <!--TEXTOS -->
-    <!-- ACTIVITYS-->
+    <!-- ACTIVITY INTERFAZ REGISTRO-->
     <string name="IntRegistro_NuevaEmpresa">Nueva Empresa</string>
     <string name="IntRegistro_Nombre">Nombre</string>
     <string name="IntRegistro_Encargado">Encargado</string>
@@ -62,8 +62,31 @@
     <string name="IntRegistro_Departamento">Departamento</string>
     <string name="IntRegistro_Registrar">Registrar</string>
 
+    <!-- ACTIVITY LOGIN-->
     <string name="Login_Usuario">Usuario</string>
     <string name="Login_Contrasena">Contraseña</string>
     <string name="Login_IniSesion">Iniciar Sesion</string>
     <string name="Login_BuscoTrabajo">BUSCO TRABAJO</string>
+
+    <!-- ACTIVITY NAVIGATION DRAWER-->
+    <string name="MainDrawer_Perfil">Perfil</string>
+    <string name="MainDrawer_CrearA">Crear Anuncio</string>
+    <string name="MainDrawer_VerA">Ver mis anuncios</string>
+
+    <!-- MENU -->
+    <string name="InterfazUsuario_Sesion">CERRAR SESION</string>
+
+
+    <!-- FRAGMENT -->
+    <!-- HOME -->
+    <string name="Home_Empresa">Empresa:</string>
+    <string name="Home_Telefono">Telefono:</string>
+    <string name="Home_Departamento">Departamento:</string>
+
+
+    <!-- CREAR ANUNCIO -->
+    <string name="CrearAnun_Titulo">Titulo</string>
+    <string name="CrearAnun_Guardar">GUARDAR</string>
+    <string name="CrearAnun_Descripcion">Ingrese Descripcion</string>
+
 </resources>

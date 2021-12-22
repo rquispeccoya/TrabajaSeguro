@@ -8,19 +8,19 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.proyectofinal.trabajoseguro.ui.homeEmpresa.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/MainDrawer_Perfil"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_crear_anuncio"
         android:name="com.proyectofinal.trabajoseguro.ui.crearAnuncioEmpresa.CrearAnuncioFragment"
-        android:label="Crear anuncio"
+        android:label="@string/MainDrawer_CrearA"
         tools:layout="@layout/fragment_crear_anuncio" />
 
 
     <fragment
         android:id="@+id/nav_ver_anuncio"
         android:name="com.proyectofinal.trabajoseguro.ui.verAnunciosEmpresa.ListaAnunciosFragment"
-        android:label="Ver mis anuncios"
+        android:label="@string/MainDrawer_VerA"
         tools:layout="@layout/fragment_lista_anuncios" />
 </navigation>
