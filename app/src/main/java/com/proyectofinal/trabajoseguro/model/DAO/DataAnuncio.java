@@ -110,4 +110,40 @@ public class DataAnuncio {
         return anuncios.toArray(anuncios1);
     }
 
+    public ArrayList<Anuncio> listaAnunciosGenerales(){
+
+        ArrayList<Anuncio> anuncios= new ArrayList<>();
+
+        ConexionSQLite conn= new ConexionSQLite(context, "bd_trabajaseguro", null, 1, null);
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(" SELECT a.titulo,a.descripcion,a.latitud,a.longitud,a.estado FROM Anuncios as a ", null);
+        while(cursor.moveToNext()){
+            Anuncio anuncio=new Anuncio();
+
+            anuncio.setTitulo(cursor.getString(0));
+            anuncio.setDescripcion(cursor.getString(1));
+            //anuncio.setNombreCategoria(cursor.getString(2));
+            anuncio.setLatitud(Double.parseDouble(cursor.getString(2)));
+            anuncio.setLongitud(Double.parseDouble(cursor.getString(3)));
+            anuncio.setEstado(Integer.parseInt(cursor.getString(4)));
+
+
+            System.out.println(anuncio.getTitulo());
+            System.out.println(anuncio.getDescripcion());
+            System.out.println(anuncio.getNombreCategoria());
+            /*
+            anuncio.setIdUsuario(Integer.parseInt(cursor.getString(6)));
+            anuncio.setTitulo(cursor.getString(1));
+            anuncio.setDescripcion(cursor.getString(2));
+            anuncio.setLatitud(Double.parseDouble(cursor.getString(3)));
+            anuncio.setLongitud(Double.parseDouble(cursor.getString(4)));
+            anuncio.setEstado(Integer.parseInt(cursor.getString(5)));
+            anuncio.setCategoria(Integer.parseInt(cursor.getString(7)));*/
+            anuncios.add(anuncio);
+        }
+        db.close();
+
+        return anuncios;
+    }
 }

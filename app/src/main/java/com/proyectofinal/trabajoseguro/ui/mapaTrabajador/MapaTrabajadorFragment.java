@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -19,17 +20,25 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.proyectofinal.trabajoseguro.R;
+import com.proyectofinal.trabajoseguro.model.DAO.DataAnuncio;
+import com.proyectofinal.trabajoseguro.model.entity.Anuncio;
 
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,6 +48,11 @@ public class MapaTrabajadorFragment extends Fragment  implements LocationListene
     Double lat=0.0,lon=0.0;
     SupportMapFragment supportMapFragment;
     AlertDialog alert = null;
+    private Circle circle;
+    private SeekBar seekBar;
+    private GoogleMap googleMap;
+    private LatLng latLng;
+    List<Marker> AllMarkers = new ArrayList<Marker>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +61,73 @@ public class MapaTrabajadorFragment extends Fragment  implements LocationListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_mapa_trabajador, container, false);
+        seekBar=view.findViewById(R.id.slader);
         //Inicializamos map fragment
         supportMapFragment=(SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.fragmentContainerView2);
 
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                removeAllMarkers();
+
+                int distancia = i*1000;
+                //actualiza el radio
+                circle.setRadius(distancia);
+                //creamos el location de la posicion del usuario
+                Location a = new Location("MI posicion");
+                a.setLatitude(latLng.latitude);
+                a.setLongitude(latLng.longitude);
+
+                DataAnuncio dataAnuncio= new DataAnuncio(getContext());
+                //recuperamos todos los anuncios de la bd
+                ArrayList<Anuncio> anuncios= dataAnuncio.listaAnunciosGenerales();
+                for (int j=0;j<anuncios.size();j++){
+                    LatLng latLng1=new LatLng(anuncios.get(j).getLatitud(),anuncios.get(j).getLongitud());
+
+                    //creamos el location de los diferentes anuncios
+                    Location ot = new Location("OTROS");
+                    ot.setLatitude(latLng1.latitude);
+                    ot.setLongitude(latLng1.longitude);
+
+                    //verificamos las distancias
+                    if(a.distanceTo(ot)<=distancia){
+                         MarkerOptions markerOptions2=new MarkerOptions();
+                        markerOptions2.title(latLng1.latitude+":"+latLng1.longitude);
+                        markerOptions2.position(latLng1);
+                        Marker mLocationMarker = googleMap.addMarker(markerOptions2);
+                        //almacenamos los marcadores cercanos
+                        AllMarkers.add(mLocationMarker);
+
+                    }
+
+                }
+
+            }
+
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
         return view;
+    }
+
+    //metodo para eliminar los marcadores cercanos a la posicion del usuario
+    private void removeAllMarkers() {
+        for (Marker mLocationMarker: AllMarkers) {
+            mLocationMarker.remove();
+        }
+        AllMarkers.clear();
+
     }
     protected void Permisos(){
         locationManager=(LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -76,9 +151,9 @@ public class MapaTrabajadorFragment extends Fragment  implements LocationListene
         System.out.println("COORDENADAS "+lat+"  "+lon);
         supportMapFragment.getMapAsync((new OnMapReadyCallback() {
             @Override
-            public void onMapReady(@NonNull GoogleMap googleMap) {
-
-                LatLng latLng=new LatLng(lat,lon);
+            public void onMapReady(@NonNull GoogleMap gMap) {
+                googleMap=gMap;
+                 latLng=new LatLng(lat,lon);
                 //Cuando hagas click ene el mapa
                 //Inicializamos el marcador
                 MarkerOptions markerOptions=new MarkerOptions();
@@ -94,9 +169,15 @@ public class MapaTrabajadorFragment extends Fragment  implements LocationListene
                 googleMap.addMarker(markerOptions);
 
 
+                circle=googleMap.addCircle(new CircleOptions()
+                        .center(latLng)
+                        .radius(100)
+                        .strokeColor(R.color.rojo)
+                        .fillColor(R.color.rojo));
             }
         }));
     }
+
 
     @Override
     public void onLocationChanged(@NonNull List<Location> locations) {
