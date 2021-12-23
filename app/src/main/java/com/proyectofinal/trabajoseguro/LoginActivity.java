@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         fireBaseConexion = new FireBaseConexion(this);
         fireBaseConexion.initFirebase();
         fireBaseConexion.UpdateEmpresasTable();
+        fireBaseConexion.UpdateAnunciosTable();
 
         ActivityLoginBinding activityLoginBinding= DataBindingUtil.setContentView(this,R.layout.activity_login);
         activityLoginBinding.setLogin(new LoginViewModel(this));

@@ -80,7 +80,7 @@ public class FireBaseConexion {
 
     public void UpdateAnunciosTable() {
         if(isConnected()){
-            Toast.makeText(context.getApplicationContext(), "Sincronizando datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context.getApplicationContext(), "Sincronizando anuncios", Toast.LENGTH_SHORT).show();
             //anuncios.clear();
             CleanAnuncios();
             databaseReference.child("Anuncio").addValueEventListener(new ValueEventListener() {
@@ -104,7 +104,7 @@ public class FireBaseConexion {
 
     public void UpdateEmpresasTable() {
         if(isConnected()){
-            Toast.makeText(context.getApplicationContext(), "Sincronizando datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context.getApplicationContext(), "Sincronizando usuarios", Toast.LENGTH_SHORT).show();
             CleanEmpresas();
             databaseReference.child("Empresa").addValueEventListener(new ValueEventListener() {
                 @Override
