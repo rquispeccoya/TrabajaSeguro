@@ -12,4 +12,5 @@
         android:text="GRAFICO BARRAS"
         android:gravity="center"/>
 
+
 </FrameLayout>
