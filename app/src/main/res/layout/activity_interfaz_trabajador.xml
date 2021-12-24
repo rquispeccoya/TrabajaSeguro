@@ -7,16 +7,23 @@
     android:orientation="vertical"
     tools:context=".InterfazTrabajadorActivity">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="644dp"
-        android:id="@+id/fragment_container_trabajador"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fragment_container_trabajador"
+            android:layout_width="match_parent"
+            android:layout_height="663dp" />
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationOption"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/purple_500"
-        app:menu="@menu/interfaz_trabajador"
-        android:id="@+id/bottomNavigationOption"/>
+        android:background="@color/black_transparent"
+        android:elevation="50dp"
+        app:menu="@menu/interfaz_trabajador" />
 
 </LinearLayout>

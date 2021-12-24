@@ -19,11 +19,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrabajoSeguro">
         <activity
-            android:name=".InterfazTrabajadorActivity"
-            android:exported="true" />
+            android:name=".InterfazTrabajadorActivity" android:screenOrientation="portrait"
+            android:exported="true" android:parentActivityName=".LoginActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
         <activity
-            android:name=".InterfazRegistroActivity"
-            android:exported="false" />
+            android:name=".InterfazRegistroActivity" android:screenOrientation="portrait"
+            android:exported="false" android:parentActivityName=".LoginActivity"
+           >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".LoginActivity" />
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,7 +52,7 @@
             android:label="@string/title_activity_interfaz_usuario"
             android:theme="@style/Theme.TrabajoSeguro.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginActivity" android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.TrabajoSeguro.NoActionBarNoSee">
             <intent-filter>

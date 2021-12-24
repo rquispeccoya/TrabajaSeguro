@@ -19,6 +19,7 @@ public class InterfazTrabajadorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle(R.string.tituloBuscar);
         setContentView(R.layout.activity_interfaz_trabajador);
 
         bottomNavigationView=findViewById(R.id.bottomNavigationOption);
@@ -38,9 +39,7 @@ public class InterfazTrabajadorActivity extends AppCompatActivity {
                 case R.id.nav_buscar_mapa:
                     fragment=new MapaTrabajadorFragment();
                     break;
-                case R.id.nav_buscar_lista:
-                    fragment=new ListaTrabajadorFragment();
-                    break;
+
                 case R.id.nav_grafico_barra:
                     fragment=new GraficoBarrasTrabajadorFragment();
                     break;

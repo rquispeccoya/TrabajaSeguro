@@ -9,187 +9,193 @@
             type="com.proyectofinal.trabajoseguro.viewmodels.InterfazRegistroViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhile"
+        android:orientation="vertical"
         tools:context=".InterfazRegistroActivity">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="@string/IntRegistro_NuevaEmpresa"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:layout_marginBottom="30dp">
 
-        <EditText
-            android:id="@+id/nombre"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Nombre"
-            android:inputType="text"
-            android:text="@={registro.empresaNombre}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <EditText
+                android:id="@+id/ruc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Ruc"
+                android:inputType="text"
+                android:text="@={registro.empresaRuc}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/telefono" />
 
-        <EditText
-            android:id="@+id/encargado"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Encargado"
-            android:inputType="text"
-            android:text="@={registro.empresaEncargado}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nombre" />
+            <EditText
+                android:id="@+id/correo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Correo"
+                android:inputType="textEmailAddress"
+                android:text="@={registro.empresaCorreo}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/encargado" />
 
-        <EditText
-            android:id="@+id/correo"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Correo"
-            android:inputType="textEmailAddress"
-            android:text="@={registro.empresaCorreo}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/encargado" />
+            <EditText
+                android:id="@+id/telefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Telefono"
+                android:inputType="text"
+                android:text="@={registro.empresaTelefono}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/correo" />
 
-        <EditText
-            android:id="@+id/telefono"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Telefono"
-            android:inputType="text"
-            android:text="@={registro.empresaTelefono}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/correo" />
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Nombre"
+                android:inputType="text"
+                android:text="@={registro.empresaNombre}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <EditText
-            android:id="@+id/ruc"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Ruc"
-            android:inputType="text"
-            android:text="@={registro.empresaRuc}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/telefono" />
+            <EditText
+                android:id="@+id/encargado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Encargado"
+                android:inputType="text"
+                android:text="@={registro.empresaEncargado}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nombre" />
 
-        <EditText
-            android:id="@+id/usuario"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Usuario"
-            android:inputType="text"
-            android:text="@={registro.empresaUsuario}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ruc" />
+            <EditText
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Usuario"
+                android:inputType="text"
+                android:text="@={registro.empresaUsuario}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ruc" />
 
-        <EditText
-            android:id="@+id/contrasenia"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Contrasena"
-            android:inputType="textPassword"
-            android:text="@={registro.empresaContrasenia}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/usuario" />
+            <EditText
+                android:id="@+id/contrasenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Contrasena"
+                android:inputType="textPassword"
+                android:text="@={registro.empresaContrasenia}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usuario" />
 
-        <EditText
-            android:id="@+id/descripcion"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Descripcion"
-            android:inputType="textMultiLine"
-            android:maxLines="5"
-            android:minLines="3"
-            android:scrollbars="vertical"
-            android:text="@={registro.empresaDescripcion}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contrasenia" />
+            <EditText
+                android:id="@+id/direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Direccion"
+                android:inputType="text"
+                android:text="@={registro.empresaDireccion}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descripcion" />
 
-        <EditText
-            android:id="@+id/direccion"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Direccion"
-            android:inputType="text"
-            android:text="@={registro.empresaDireccion}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descripcion" />
+            <EditText
+                android:id="@+id/departamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Departamento"
+                android:inputType="text"
+                android:text="@={registro.empresaDepartamento}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/direccion" />
 
-        <EditText
-            android:id="@+id/departamento"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/IntRegistro_Departamento"
-            android:inputType="text"
-            android:text="@={registro.empresaDepartamento}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/direccion" />
-
-        <Spinner
-            android:id="@+id/static_spinner"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/departamento" />
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/fondodescripcion"
+                android:ems="10"
+                android:hint="@string/IntRegistro_Descripcion"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:minLines="3"
+                android:padding="5dp"
+                android:scrollbars="vertical"
+                android:text="@={registro.empresaDescripcion}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contrasenia" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/buttonRegistrar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="@color/orange"
             android:onClick="@{()->registro.onClickRegistrar()}"
             android:text="@string/IntRegistro_Registrar"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/static_spinner"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

@@ -10,114 +10,161 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhile"
+        android:orientation="vertical"
         tools:context=".LoginActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="@string/pregunta"
+                android:textColor="@color/colorWhile"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/respuesta"
+                android:textColor="@color/colorWhile"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/buttonBuscoTrabajo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="#A51717"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/button"
                 android:onClick="@{()->login.onBuscarTrabajo()}"
-                android:text="@string/Login_BuscoTrabajo" />
+                android:text="@string/btnBuscas"
+                android:textColor="@color/colorWhile" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textViewLogin"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginTop="100dp"
-            android:text="@string/tituloLogin"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteY="111dp">
 
-        <EditText
-            android:id="@+id/editTextUser"
-            android:layout_width="307dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="56dp"
-            android:background="@drawable/backlogin"
-            android:ems="10"
-            android:hint="@string/Login_Usuario"
-            android:inputType="textPersonName"
-            android:text="@={login.loginUsuario}"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black_w"
-            app:backgroundTint="@null"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLogin" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/logoapp" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="307dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/backlogin"
-            android:ems="10"
-            android:hint="@string/Login_Contrasena"
-            android:inputType="textPassword"
-            android:text="@={login.loginContrasenia}"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black_w"
-            app:backgroundTint="@null"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
-
-        <Button
-            android:id="@+id/buttonIniciarSesion"
-            android:layout_width="307dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/button"
-            app:backgroundTint="@null"
-            android:onClick="@{()->login.onIniciarSesion()}"
-            android:text="@string/Login_IniSesion"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
-
-        <Button
-            android:id="@+id/buttonRegistro"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/nothing"
-            android:onClick="@{()->login.onFormularioRegistro()}"
-            android:text="@string/noCuenta"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:backgroundTint="@null"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonIniciarSesion" />
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/backlogin"
+                    android:ems="10"
+                    android:gravity="bottom"
+                    android:hint="@string/Login_Usuario"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:text="@={login.loginUsuario}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorSecundaryText"
+                    android:textSize="17sp"
+                    app:backgroundTint="@null" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/black_w" />
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/backlogin"
+                    android:ems="10"
+                    android:gravity="bottom"
+                    android:hint="@string/Login_Contrasena"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:text="@={login.loginContrasenia}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorSecundaryText"
+                    android:textSize="17sp"
+                    app:backgroundTint="@null" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/black_w" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonIniciarSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:onClick="@{()->login.onIniciarSesion()}"
+                    android:text="@string/Login_IniSesion"
+                    android:textColor="@color/colorWhile"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/buttonRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/nothing"
+                    android:onClick="@{()->login.onFormularioRegistro()}"
+                    android:text="@string/noCuenta"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

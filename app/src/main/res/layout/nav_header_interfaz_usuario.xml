@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
+        android:layout_height="259dp"
+        android:background="@drawable/fondovistausuario"
         android:gravity="bottom"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -21,35 +21,52 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="78dp"
-            android:layout_height="72dp"
+            android:layout_width="98dp"
+            android:layout_height="94dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/user_perfil"
             android:contentDescription="@string/nav_header_desc"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@mipmap/ic_launcher_round"
-            tools:srcCompat="@drawable/usuario" />
+            app:srcCompat="@drawable/user_perfil" />
 
-        <TextView
-            android:id="@+id/idInterfazUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-            android:text="id"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-        <TextView
-            android:id="@+id/nombreInterfazUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="@string/nav_header_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-        <TextView
-
-            android:id="@+id/encargadoInterfazUsuario"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="@string/nav_header_subtitle" />
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/idInterfazUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="id"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:visibility="invisible" />
+
+            <TextView
+
+                android:id="@+id/encargadoInterfazUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:padding="10dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:text="@string/nav_header_subtitle"
+                android:textColor="@color/colorWhile"
+                android:textStyle="bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nombreInterfazUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:text="@string/nav_header_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:textSize="18sp" />
+        </LinearLayout>
+
     </LinearLayout>
 </layout>

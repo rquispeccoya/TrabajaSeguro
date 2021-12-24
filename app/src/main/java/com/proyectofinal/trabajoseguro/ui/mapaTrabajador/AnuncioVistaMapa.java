@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.proyectofinal.trabajoseguro.R;
@@ -19,6 +21,11 @@ import com.proyectofinal.trabajoseguro.R;
  */
 public class AnuncioVistaMapa extends Fragment {
     BottomNavigationView v;
+    String categoriaT ;
+    String tituloT;
+    String descripcionT;
+    TextView titulo,descripcion,categoria;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,17 +87,23 @@ public class AnuncioVistaMapa extends Fragment {
         // Y ahora puedes recuperar usando get en lugar de put
         // long id = datosRecuperados.getLong("id");
         // int edad = datosRecuperados.getInt("edad");
-        String nombre = datosRecuperados.getString("latLong");
-        // Imprimimos, pero en tu caso haz lo necesario
-        // Log.d("GastosFragmentEditar", "El ID: " + id);
-        //Log.d("GastosFragmentEditar", "La edad: " + edad);
-        Log.d("GastosFragmentEditar", "El nombre: " + nombre);
+          categoriaT = datosRecuperados.getString("categoria");
+         tituloT=datosRecuperados.getString("titulo");
+          descripcionT=datosRecuperados.getString("descripcion");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anuncio_vista_mapa, container, false);
+       View view= inflater.inflate(R.layout.fragment_anuncio_vista_mapa, container, false);
+
+        categoria=(TextView)view.findViewById(R.id.idcategoria);
+        titulo=(TextView) view.findViewById(R.id.idnombreanuncio);
+        descripcion=(TextView) view.findViewById(R.id.idDescripcion);
+        categoria.setText(categoriaT);
+        titulo.setText(tituloT);
+        descripcion.setText(descripcionT);
+       return view;
     }
 }

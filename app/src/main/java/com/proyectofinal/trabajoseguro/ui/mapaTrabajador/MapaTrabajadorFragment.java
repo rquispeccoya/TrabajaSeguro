@@ -224,7 +224,9 @@ public class MapaTrabajadorFragment extends Fragment  implements LocationListene
                         if(!markerName.equalsIgnoreCase("Mi posicion")) {
                             Anuncio s= (Anuncio) marker.getTag();
                             Bundle datosAEnviar = new Bundle();
-                            datosAEnviar.putString("latLong", s.getCategoria()+"");
+                            datosAEnviar.putString("categoria", s.getCategoria()+"");
+                            datosAEnviar.putString("titulo", s.getTitulo()+"");
+                            datosAEnviar.putString("descripcion", s.getDescripcion()+"");
                             Fragment fragmento = new AnuncioVistaMapa();
                             fragmento.setArguments(datosAEnviar);
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

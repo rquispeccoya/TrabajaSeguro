@@ -8,6 +8,20 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Login-->
+    <string name="pregunta"> ¿Buscas trabajo?</string>
+    <string name="respuesta"> Le brindramos una variedad de oportunidades en Trabaja Seguro</string>
+    <string name="btnBuscas"> Encontrar Trabajo</string>
+    <string name="ingresar"> Ingresar</string>
+    <string name="noCuenta">¿No tienes cuenta? Registrate</string>
+
+    <!-- Registro-->
+
+    <string name="titulo"> Cuenta Nueva</string>
+    <string name="tituloBuscar"> Buscar Trabajo</string>
+
+
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -18,7 +32,7 @@
     <string name="location_permission_denied">location_permission_denied</string>
     <!-- valores de las interfaces-->
     <string name="tituloLogin">TRABAJA PERU</string>
-    <string name="noCuenta">¿No tienes cuenta? Registrate</string>
+
     <string-array name="departamentos">
         <item>Amazonas</item>
         <item>Ancash</item>
@@ -56,7 +70,7 @@
     <string name="IntRegistro_Telefono">Telefono</string>
     <string name="IntRegistro_Ruc">RUC</string>
     <string name="IntRegistro_Usuario">Usuario</string>
-    <string name="IntRegistro_Contrasena">Contrasena</string>
+    <string name="IntRegistro_Contrasena">Contraseña</string>
     <string name="IntRegistro_Descripcion">Descripcion</string>
     <string name="IntRegistro_Direccion">Direccion</string>
     <string name="IntRegistro_Departamento">Departamento</string>
